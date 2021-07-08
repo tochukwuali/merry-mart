@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 main {
   min-height: 80vh;
 }
@@ -21,30 +22,24 @@ h2 {
 }
 
 /* carousel */
-.carousel-item-next,
-.carousel-item-prev,
-.carousel-item.active {
-  display: flex;
-}
-.carousel-caption {
-  position: absolute;
-  top: 0;
+.details_rproducts_carousel {
+  padding: 1.3rem 0;
+  margin-left: -0.7rem;
 }
 
-.carousel-caption h2 {
-  color: #fff;
+.carousel_rel_image {
+  width: 35%;
+  text-align: center;
+  padding: 0 0.7rem;
 }
 
-.carousel img {
-  height: 300px;
-  padding: 30px;
-  margin: 40px;
-  border-radius: 50%;
-  margin-left: auto;
-  margin-right: auto;
+.carousel_rel_image p {
+  margin-top: 1rem;
 }
-.carousel a {
-  margin: 0 auto;
+
+.carousel_rel_image img {
+  width: 100%;
+  border-radius: 5px;
 }
 @media (max-width: 900px) {
   .carousel-caption h2 {

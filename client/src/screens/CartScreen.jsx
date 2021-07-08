@@ -8,7 +8,7 @@ import {
   Image,
   FormControl,
   Button,
-  Card
+  Card,
 } from "react-bootstrap";
 import Message from "../components/Message";
 import { addToCart, removeFromCart } from "../actions/cartActions";
@@ -20,7 +20,7 @@ const CartScreen = ({ match, location, history }) => {
 
   const dispatch = useDispatch();
 
-  const cart = useSelector(state => state.cart);
+  const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
   useEffect(() => {
@@ -29,13 +29,13 @@ const CartScreen = ({ match, location, history }) => {
     }
   }, [dispatch, productId, qty]);
 
-  const removeFromCartHandler = id => {
-    dispatch(removeFromCart(id))
+  const removeFromCartHandler = (id) => {
+    dispatch(removeFromCart(id));
   };
 
   const checkoutHandler = () => {
-    history.push('/login?redirect=shipping')
-  }
+    history.push("/login?redirect=shipping");
+  };
 
   return (
     <Row>
@@ -48,7 +48,7 @@ const CartScreen = ({ match, location, history }) => {
           </Message>
         ) : (
           <ListGroup variant="flush">
-            {cartItems.map(item => (
+            {cartItems.map((item) => (
               <ListGroup.Item key={item.product}>
                 <Row>
                   <Col md={2}>
@@ -62,13 +62,13 @@ const CartScreen = ({ match, location, history }) => {
                     <FormControl
                       as="select"
                       value={item.qty}
-                      onChange={e => {
+                      onChange={(e) => {
                         dispatch(
                           addToCart(item.product, Number(e.target.value))
                         );
                       }}
                     >
-                      {[...Array(item.countInStock).keys()].map(x => (
+                      {[...Array(item.countInStock).keys()].map((x) => (
                         <option key={x + 1} value={x + 1}>
                           {x + 1}
                         </option>
@@ -96,7 +96,7 @@ const CartScreen = ({ match, location, history }) => {
             <ListGroup.Item>
               <h2>
                 Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
-                items $
+                items N
                 {cartItems
                   .reduce((acc, item) => acc + item.qty * item.price, 0)
                   .toFixed(2)}
